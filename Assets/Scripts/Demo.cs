@@ -1,28 +1,34 @@
 using System;
+using Logger.Scripts;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Demo : MonoBehaviour
 {
+    public Button createLog;
     public void Start()
     {
-        LogError();
-        LogInfo();
-        LogWarning();
+        createLog.onClick.AddListener(() =>
+        {
+            LogError();
+            LogInfo();
+            LogWarning();
+        });
     }
-    
-    public void LogInfo()
+
+    private void LogInfo()
     {
         Debug.Log("This is a normal log message");
     }
-    
-    public void LogWarning()
+
+    private void LogWarning()
     {
         Debug.LogWarning("Warning message");
     }
 
-    public void LogError()
+    private void LogError()
     {
         Debug.LogError("Error: Just kidding :)");
     }
-
 }
+
